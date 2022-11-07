@@ -29,7 +29,7 @@ public class AnagramChecker {
             System.out.print("Please enter your username > ");
             String username = scanner.nextLine();
             while(username.trim().isEmpty()) {
-                System.out.println("Please re-enter username > ");
+                System.out.print("Please re-enter username > ");
                 username = scanner.nextLine();
             }
             System.out.println("Welcome " + username);
