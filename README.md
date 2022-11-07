@@ -31,4 +31,4 @@ java -jar target/CodingChallenge-1.0-SNAPSHOT.jar
 ```
 # Logging
 
-Each time the application runs, logs will be visible in the terminal and written to a file with the \CodingChallenge directory
+Each time the application runs, logs will be visible in the terminal and written to a file within the \CodingChallenge directory.
