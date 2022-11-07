@@ -2,8 +2,6 @@ package com.mattdev95.anagram;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,26 +9,30 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class AnagramFileCreator {
+
     private static final Logger LOGGER = LogManager.getLogger(AnagramChecker.class);
 
     /**
-     *
-     * @param value
+     * To write a file
+     * @param valueOne the value to enter.
+     * @param fileName the value to enter.
      */
-    public void writeToFile(String valueOne) {
+    public Boolean writeToFile(String valueOne, String fileName) {
         try {
-            BufferedWriter valueWriter = new BufferedWriter(new FileWriter("values.txt", true));
+            BufferedWriter valueWriter = new BufferedWriter(new FileWriter(fileName, true));
             valueWriter.write(valueOne);
             valueWriter.write(",");
             valueWriter.close();
+            return true;
         } catch (IOException e) {
             LOGGER.error("The values: " + valueOne + " was unable to be written to file", e);
         }
+        return false;
     }
 
     /**
-     *
-     * @return
+     * To read from the file.
+     * @return return a list of values.
      */
     public List<String> readFromFile() {
         try {
