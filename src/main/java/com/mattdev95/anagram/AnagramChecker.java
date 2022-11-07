@@ -37,7 +37,7 @@ public class AnagramChecker {
             System.out.println("Please enter two strings");
             System.out.print("Enter values one >");
             String textValueOne = scanner.nextLine();
-            while((containsNumbers(textValueOne) || textValueOne.trim().isEmpty()) && !stringCache.contains(textValueOne)) {
+            while((containsNumbers(textValueOne) || textValueOne.trim().isEmpty()) && !stringCache.contains(textValueOne) && textValueOne.length() > 1) {
                 System.out.println("Please re-enter value one > ");
                 textValueOne = scanner.nextLine();
             }
@@ -45,10 +45,10 @@ public class AnagramChecker {
             if(!valuesEntered.contains(textValueOne)) {
                 filesCreator.writeToFile(textValueOne, fileName);
             }
-            System.out.print("Enter value two >");
+            System.out.print("Enter value two > ");
             String textValueTwo = scanner.nextLine();
             while((textValueOne.length() != textValueTwo.length() || containsNumbers(textValueTwo) || textValueOne.trim().isEmpty()) &&
-                    !stringCache.contains(textValueTwo)) {
+                    !stringCache.contains(textValueTwo) && textValueOne.length() > 1) {
                 System.out.println();
                 System.out.print("Please re-enter the second value > ");
                 textValueTwo = scanner.nextLine();
