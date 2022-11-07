@@ -1,4 +1,4 @@
-﻿# Anagram checker 
+﻿# Anagram Checker 
 This is a program to check if two values are an anagram.
 
 Assumptions include:
