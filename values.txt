@@ -1,1 +1,1 @@
-friend,finder,hello,hlloe,
+friend,finder
