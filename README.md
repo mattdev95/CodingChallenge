@@ -16,7 +16,7 @@ Depending on your version of Java, I am using version 17. Please update the pom.
  <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-    </properties>
+ </properties>
 ```
 
 Then you want to run the following commands in your \CodingChallenge directory:
@@ -29,7 +29,6 @@ Then you want to execute this command:
 ```
 java -jar target/CodingChallenge-1.0-SNAPSHOT.jar
 ```
-
 # Logging
 
 Each time the application runs, logs will be visible in the terminal and written to a file with the \CodingChallenge directory
