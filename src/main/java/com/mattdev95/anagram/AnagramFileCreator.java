@@ -40,7 +40,6 @@ public class AnagramFileCreator {
             String values = valueReader.readLine();
             if(values != null) {
                 String[] valuesArray = values.split(",");
-                System.out.println(Arrays.toString(valuesArray));
                 return Arrays.stream(valuesArray).collect(Collectors.toList());
             }
         } catch (IOException e) {

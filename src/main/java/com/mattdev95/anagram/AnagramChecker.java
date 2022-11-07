@@ -25,7 +25,7 @@ public class AnagramChecker {
             final var filesCreator = new AnagramFileCreator();
             List<String> valuesEntered = filesCreator.readFromFile();
             final String fileName = "values.txt";
-            stringCache.addAll(valuesEntered);
+            loadCache(valuesEntered);
             System.out.println("---- Hello welcome to the anagram checker ----");
             System.out.print("Please enter your username > ");
             String username = scanner.nextLine();
@@ -37,7 +37,7 @@ public class AnagramChecker {
             System.out.println("Please enter two strings");
             System.out.print("Enter values one >");
             String textValueOne = scanner.nextLine();
-            while((containsNumbers(textValueOne) || textValueOne.trim().isEmpty()) && !stringCache.contains(textValueOne) && textValueOne.length() > 1) {
+            while((containsNumbers(textValueOne) || textValueOne.trim().isEmpty() || stringCache.contains(textValueOne))) {
                 System.out.println("Please re-enter value one > ");
                 textValueOne = scanner.nextLine();
             }
@@ -48,7 +48,7 @@ public class AnagramChecker {
             System.out.print("Enter value two > ");
             String textValueTwo = scanner.nextLine();
             while((textValueOne.length() != textValueTwo.length() || containsNumbers(textValueTwo) || textValueOne.trim().isEmpty()) &&
-                    !stringCache.contains(textValueTwo) && textValueOne.length() > 1) {
+                    stringCache.contains(textValueTwo)) {
                 System.out.println();
                 System.out.print("Please re-enter the second value > ");
                 textValueTwo = scanner.nextLine();
@@ -98,6 +98,15 @@ public class AnagramChecker {
             stringCache.add(value);
             LOGGER.debug("Cache has been updated with " + value);
         }
+    }
+
+    /**
+     * To load the cache on startup
+     * @param cacheValues the values to add to cache.
+     */
+    private void loadCache(List<String> cacheValues) {
+        stringCache.addAll(cacheValues);
+        LOGGER.debug("Cache has been loaded with existing entities: " + cacheValues);
     }
 
     /**
