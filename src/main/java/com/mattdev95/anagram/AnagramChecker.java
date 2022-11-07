@@ -47,9 +47,8 @@ public class AnagramChecker {
             }
             System.out.print("Enter value two > ");
             String textValueTwo = scanner.nextLine();
-            while((textValueOne.length() != textValueTwo.length() || containsNumbers(textValueTwo) || textValueOne.trim().isEmpty()) &&
+            while((textValueOne.length() != textValueTwo.length() || containsNumbers(textValueTwo) || textValueOne.trim().isEmpty()) ||
                     stringCache.contains(textValueTwo)) {
-                System.out.println();
                 System.out.print("Please re-enter the second value > ");
                 textValueTwo = scanner.nextLine();
             }
@@ -59,14 +58,12 @@ public class AnagramChecker {
             }
             Boolean isAnagram = analyseIfAnagram(textValueOne, textValueTwo);
             String result = resultsOfAnagramInput(isAnagram);
-            // clear cache
             stringCache.clear();
             System.out.println(result);
             System.out.println("Goodbye " + username);
         } catch (Exception e) {
             LOGGER.error("Something has gone wrong, please investigate", e);
         }
-
     }
 
     /**
