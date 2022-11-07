@@ -37,7 +37,7 @@ public class AnagramChecker {
             System.out.print("Enter values one >");
             String textValueOne = scanner.nextLine();
             while((containsNumbers(textValueOne) || textValueOne.trim().isEmpty() || stringCache.contains(textValueOne))) {
-                System.out.println("Please re-enter value one > ");
+                System.out.print("Please re-enter value one > ");
                 textValueOne = scanner.nextLine();
             }
             updateCache(textValueOne);
