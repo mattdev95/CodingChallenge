@@ -8,6 +8,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * To write and read from files.
+ */
 public class AnagramFileCreator {
 
     private static final Logger LOGGER = LogManager.getLogger(AnagramChecker.class);

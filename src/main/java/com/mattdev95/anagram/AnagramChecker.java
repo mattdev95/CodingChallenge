@@ -12,8 +12,6 @@ public class AnagramChecker {
 
     private static final Logger LOGGER = LogManager.getLogger(AnagramChecker.class);
 
-    private final Scanner scanner = new Scanner(System.in);
-
     // Global memory to mock cache
     private final ArrayList<String> stringCache = new ArrayList<>();
 
@@ -22,6 +20,7 @@ public class AnagramChecker {
      */
     public void checkAnagramInput() {
         try {
+            Scanner scanner = new Scanner(System.in);
             final var filesCreator = new AnagramFileCreator();
             List<String> valuesEntered = filesCreator.readFromFile();
             final String fileName = "values.txt";
