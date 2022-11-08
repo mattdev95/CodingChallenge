@@ -11,7 +11,7 @@ Before running the application ensure to install Apache Maven and add \bin folde
 C:\Program Files\apache-maven-3.8.6\bin
 ```
 
-Depending on your version of Java, I am using version 17. Please update the pom.xml file to your version of Java:
+Depending on your version of Java, I am using version 17. Please update the pom.xml file to your version of Java (ideally version 11):
 ```
  <properties>
         <maven.compiler.source>17</maven.compiler.source>
