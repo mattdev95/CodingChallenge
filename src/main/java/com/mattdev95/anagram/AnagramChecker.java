@@ -28,7 +28,7 @@ public class AnagramChecker {
             System.out.println("---- Hello welcome to the anagram checker ----");
             System.out.print("Please enter your username > ");
             String username = scanner.nextLine();
-            while(username.trim().isEmpty()) {
+            while(isWhiteSpace(username) || username.trim().isEmpty()) {
                 System.out.print("Please re-enter username > ");
                 username = scanner.nextLine();
             }
@@ -36,7 +36,7 @@ public class AnagramChecker {
             System.out.println("Please enter two strings");
             System.out.print("Enter values one >");
             String textValueOne = scanner.nextLine();
-            while((containsNumbers(textValueOne) || textValueOne.trim().isEmpty() || stringCache.contains(textValueOne))) {
+            while(containsNumbers(textValueOne) || isWhiteSpace(textValueOne) || stringCache.contains(textValueOne) && textValueOne.trim().isEmpty()) {
                 System.out.print("Please re-enter value one > ");
                 textValueOne = scanner.nextLine();
             }
@@ -46,8 +46,8 @@ public class AnagramChecker {
             }
             System.out.print("Enter value two > ");
             String textValueTwo = scanner.nextLine();
-            while((textValueOne.length() != textValueTwo.length() || containsNumbers(textValueTwo) || textValueOne.trim().isEmpty()) ||
-                    stringCache.contains(textValueTwo)) {
+            while(((textValueOne.length() != textValueTwo.length() || containsNumbers(textValueTwo) || isWhiteSpace(textValueTwo)) ||
+                    stringCache.contains(textValueTwo) && textValueTwo.trim().isEmpty())) {
                 System.out.print("Please re-enter the second value > ");
                 textValueTwo = scanner.nextLine();
             }
@@ -72,6 +72,15 @@ public class AnagramChecker {
      */
     private Boolean containsNumbers(String input) {
         return input.matches(".*\\d.*");
+    }
+
+    /**
+     * To check if there is a space entered within the input.
+     * @param value to check.
+     * @return boolean result if whitespace.
+     */
+    private Boolean isWhiteSpace(String value) {
+        return value.matches(".*\\s+.*");
     }
 
     /**
